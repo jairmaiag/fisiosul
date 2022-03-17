@@ -1,0 +1,53 @@
+{
+    "itensMenu": [
+        {
+            "id": 1,
+            "label": "Home",
+            "link": "home.html",
+            "submenu": []
+        },
+        {
+            "id": 2,
+            "label": "Clínicas",
+            "link": "clinicas.html",
+            "submenu": []
+        },
+        {
+            "id": 3,
+            "label": "Preços",
+            "link": "home.html",
+            "submenu": []
+        },
+        {
+            "id": 4,
+            "label": "Cadastre-se",
+            "link": "home.html",
+            "submenu": []
+        },
+        {
+            "id": 5,
+            "label": "Tabela",
+            "link": "#",
+            "submenu": [
+                {
+                    "id": 7,
+                    "label": "Usuário",
+                    "link": "#",
+                    "submenu": []
+                },
+                {
+                    "id": 8,
+                    "label": "Funcionário",
+                    "link": "#",
+                    "submenu": []
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "label": "Login",
+            "link": "#",
+            "submenu": []
+        }
+    ]
+}
