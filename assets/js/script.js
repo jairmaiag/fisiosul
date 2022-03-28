@@ -3,15 +3,15 @@ const criarParagrafoCard = function (texto) {
     paragrafo.addClass("card-text");
     paragrafo.html(texto);
     return paragrafo;
-}
+};
 
 const exibeConteudo = function(link){
-    const pagina = $.get(`/${link}`);
+    const pagina = $.get(`paginas/${link}/index.html`);
     pagina.done(data =>{
         let pirncipal = $('main');
         pirncipal.html(data);
     });
-}
+};
 const clickLink = function (event) {
     const idClicado = event.target.id;
     const pagina = $(event.target).attr('href');
@@ -46,27 +46,31 @@ const criarMenu = function(){
         divMenu.addClass('collapse');
         divMenu.addClass('navbar-collapse');
         divMenu.appendTo(nav);
+        
         const ulMneu = $(document.createElement('ul'));
         ulMneu.attr('id', 'listaMenu');
         ulMneu.addClass('navbar-nav');
         ulMneu.addClass('mr-auto');
+
         ulMneu.appendTo(divMenu);
         data.itensMenu.forEach((item, index) => {
             const submenu = item.submenu;
             const comSubMenu = submenu && item.submenu.length;
             const menu = $(document.createElement('li'));
             const link = $(document.createElement('a'));
+            
+            link.addClass('nav-link');
+            link.addClass('corFontMenu');
             link.click(clickLink);
+            
+            menu.addClass('nav-item');
             if (index === 0) {
                 menu.addClass('active');
             }
-            link.addClass('nav-link');
-            link.addClass('corFontMenu');
             link.attr('href', item.link);
             link.html(`${item.label}`);
             link.attr('id', `${item.id}_${item.label}`);
     
-            menu.addClass('nav-item');
             link.appendTo(menu);
             // if (comSubMenu) {
             //     link.className += ' dropdown-toggle';
@@ -96,4 +100,4 @@ const criarMenu = function(){
 };
 criarMenu();
 // exibeConteudo('clinicas.html');
-exibeConteudo('home.html');
+exibeConteudo('home');

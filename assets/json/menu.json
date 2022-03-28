@@ -3,25 +3,25 @@
         {
             "id": 1,
             "label": "Home",
-            "link": "home.html",
+            "link": "home",
             "submenu": []
         },
         {
             "id": 2,
             "label": "Clínicas",
-            "link": "clinicas.html",
+            "link": "clinicas",
             "submenu": []
         },
         {
             "id": 3,
             "label": "Preços",
-            "link": "home.html",
+            "link": "home",
             "submenu": []
         },
         {
             "id": 4,
             "label": "Cadastre-se",
-            "link": "home.html",
+            "link": "home",
             "submenu": []
         },
         {
