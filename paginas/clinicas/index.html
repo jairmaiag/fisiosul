@@ -1,7 +1,7 @@
 <h3 id="cli" class="text-success">Clínicas</h3>
 <div id="listaUnidades"></div>
 <script>
-window.jsonClinicas = $.getJSON('/assets/json/clinicas.json');
+window.jsonClinicas = $.getJSON('assets/json/clinicas.json');
 window.jsonClinicas.done(data => {
     const lista = $('#listaUnidades');
     const divCardDeck = $(document.createElement('div'));
@@ -42,8 +42,9 @@ window.jsonClinicas.done(data => {
                         linkWahtssIni = `<a href="https://web.whatsapp.com/send?phone=55${fone.ddd}${fone.numero}&text=Olá!%20Estou%20em%20seu%20site%2C%20pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">`;
                     }
                 } 
-                const icone = fone.tipo == "fixo" ? 'fonefixo.png' : 'fonemovel.png';
-                let texto = `${linkWahtssIni}<img src="/assets/images/${icone}" class="fone" alt="icone"> (${fone.ddd}) ${fone.numero}${celular ? "</a>" : fone.tipo == 'movel' ? '</a>': ''} `;
+                const icone = fone.tipo == "fixo" ? 'fa-phone' : 'fa-whatsapp';
+                
+                let texto = `${linkWahtssIni}<i class="fa ${icone}" aria-hidden="true"></i> (${fone.ddd}) ${fone.numero}${celular ? "</a>" : fone.tipo == 'movel' ? '</a>': ''} `;
                 pFones.html(texto);
                 pFones.appendTo(divCardBody);
             });
