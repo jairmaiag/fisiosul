@@ -39,7 +39,7 @@ const clickLink = function (event) {
     }
 };
 const criarMenu = function(){
-    const jsonMenu = $.getJSON('/assets/json/menu.json');
+    const jsonMenu = $.getJSON('assets/json/menu.json');
     jsonMenu.done(data => {
         const nav = $('nav');
         const divMenu = $(document.createElement('div')).attr('id', 'menuprincipal');
