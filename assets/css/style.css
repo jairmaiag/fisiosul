@@ -1,5 +1,6 @@
 #logomenu{
     background-color: #ffffff;
+    border-radius: 30px;
 }
 .navbar-light{
     background-image: linear-gradient(0deg, #94c5bf,#118f7e);    
