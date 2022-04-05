@@ -1,12 +1,16 @@
 window.onload = function () {
     criarMenu();
-    // exibeConteudo('clinicas.html');
     exibeConteudo('home');
     ajustarLinkHome();
 }
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
-    console.log(host);
+    if(host == 'jairmaiag.github.io'){
+        const logoMenu = $('#linklogomenu');
+        logoMenu.attr('href','https://jairmaiag.github.io/fisiosul/');
+        const logoBanner = $('#linkbanner');
+        logoBanner.attr('href','https://jairmaiag.github.io/fisiosul/');
+    }
 }
 const criarParagrafoCard = function (texto) {
     const paragrafo = $(document.createElement('p'));
