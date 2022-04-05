@@ -1,4 +1,4 @@
-<h3 id="cli" class="text-success">Clínicas</h3>
+<h1 id="cli" class="text-success">Clínicas</h1>
 <div id="listaUnidades"></div>
 <script>
 window.jsonClinicas = $.getJSON('assets/json/clinicas.json');
@@ -51,11 +51,16 @@ window.jsonClinicas.done(data => {
         }
 
         const aVisitar = $(document.createElement('a'));
+        const icone = $(document.createElement('em'));
+        icone.addClass('fa');
+        icone.addClass('fa-map-marker');
+        icone.attr('aria-hidden','true');
+        icone.html(' Mapa');
         aVisitar.attr('href', endereco.mapa);
         aVisitar.attr('target', 'blank');
         aVisitar.addClass('btn');
         aVisitar.addClass('btn-primary');
-        aVisitar.html('Mapa');
+        icone.appendTo(aVisitar);
         aVisitar.appendTo(divCardBody);
 
         divCardBody.appendTo(divCard);
