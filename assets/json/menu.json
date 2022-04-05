@@ -15,7 +15,7 @@
         {
             "id": 3,
             "label": "Preços",
-            "link": "home",
+            "link": "precos",
             "submenu": []
         },
         {
