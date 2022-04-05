@@ -1,3 +1,13 @@
+window.onload = function () {
+    criarMenu();
+    // exibeConteudo('clinicas.html');
+    exibeConteudo('home');
+    ajustarLinkHome();
+}
+const ajustarLinkHome = function () {
+    const host = window.location.hostname;
+    console.log(host);
+}
 const criarParagrafoCard = function (texto) {
     const paragrafo = $(document.createElement('p'));
     paragrafo.addClass("card-text");
@@ -5,9 +15,9 @@ const criarParagrafoCard = function (texto) {
     return paragrafo;
 };
 
-const exibeConteudo = function(link){
+const exibeConteudo = function (link) {
     const pagina = $.get(`paginas/${link}/index.html`);
-    pagina.done(data =>{
+    pagina.done(data => {
         let pirncipal = $('main');
         pirncipal.html(data);
     });
@@ -25,20 +35,20 @@ const clickLink = function (event) {
             item.addClass('active');
         }
     }
-    if(pagina != '#'){
+    if (pagina != '#') {
         exibeConteudo(pagina);
     }
     const botaoHamburger = $('#hamburger');
-    if(!botaoHamburger.hasClass('collapsed')){
+    if (!botaoHamburger.hasClass('collapsed')) {
         botaoHamburger.addClass('collapsed');
 
     }
     const divMenuPrincipal = $('#menuprincipal');
-    if(divMenuPrincipal.hasClass('show')){
+    if (divMenuPrincipal.hasClass('show')) {
         divMenuPrincipal.removeClass('show');
     }
 };
-const criarMenu = function(){
+const criarMenu = function () {
     const jsonMenu = $.getJSON('assets/json/menu.json');
     jsonMenu.done(data => {
         const nav = $('nav');
@@ -46,7 +56,7 @@ const criarMenu = function(){
         divMenu.addClass('collapse');
         divMenu.addClass('navbar-collapse');
         divMenu.appendTo(nav);
-        
+
         const ulMneu = $(document.createElement('ul'));
         ulMneu.attr('id', 'listaMenu');
         ulMneu.addClass('navbar-nav');
@@ -58,11 +68,11 @@ const criarMenu = function(){
             const comSubMenu = submenu && item.submenu.length;
             const menu = $(document.createElement('li'));
             const link = $(document.createElement('a'));
-            
+
             link.addClass('nav-link');
             link.addClass('corFontMenu');
             link.click(clickLink);
-            
+
             menu.addClass('nav-item');
             if (index === 0) {
                 menu.addClass('active');
@@ -70,7 +80,7 @@ const criarMenu = function(){
             link.attr('href', item.link);
             link.html(`${item.label}`);
             link.attr('id', `${item.id}_${item.label}`);
-    
+
             link.appendTo(menu);
             // if (comSubMenu) {
             //     link.className += ' dropdown-toggle';
@@ -78,7 +88,7 @@ const criarMenu = function(){
             //     link.attr('data-toggle', "dropdown");
             //     link.attr('aria-haspopup', true);
             //     link.attr('aria-expanded', false);
-    
+
             //     menu.className += ' dropdown';
             //     const divSubMenu = $('div');
             //     divSubMenu.className = 'dropdown-menu corFundoMenu';
@@ -98,6 +108,3 @@ const criarMenu = function(){
         });
     });
 };
-criarMenu();
-// exibeConteudo('clinicas.html');
-exibeConteudo('home');
