@@ -6,10 +6,11 @@ window.onload = function () {
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
     if(host == 'jairmaiag.github.io'){
+        const link = 'https://jairmaiag.github.io/fisiosul/';
         const logoMenu = $('#linklogomenu');
-        logoMenu.attr('href','https://jairmaiag.github.io/fisiosul/');
+        logoMenu.attr('href',link);
         const logoBanner = $('#linkbanner');
-        logoBanner.attr('href','https://jairmaiag.github.io/fisiosul/');
+        logoBanner.attr('href',link);
     }
 }
 const criarParagrafoCard = function (texto) {
