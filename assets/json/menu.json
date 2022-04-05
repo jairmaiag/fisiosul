@@ -20,32 +20,13 @@
         },
         {
             "id": 4,
-            "label": "Cadastre-se",
-            "link": "home",
+            "label": "Regras",
+            "link": "regras",
             "submenu": []
         },
         {
             "id": 5,
-            "label": "Tabela",
-            "link": "#",
-            "submenu": [
-                {
-                    "id": 7,
-                    "label": "Usuário",
-                    "link": "#",
-                    "submenu": []
-                },
-                {
-                    "id": 8,
-                    "label": "Funcionário",
-                    "link": "#",
-                    "submenu": []
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "label": "Login",
+            "label": "Dicas",
             "link": "#",
             "submenu": []
         }
