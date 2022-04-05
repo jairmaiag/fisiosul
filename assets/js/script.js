@@ -54,10 +54,28 @@ const clickLink = function (event) {
     }
 };
 const criarMenu = function () {
-    const jsonMenu = $.getJSON('assets/json/menu.json');
+    const jsonMenu = getMenu();
     jsonMenu.done(data => {
         const nav = $('nav');
         const divMenu = $(document.createElement('div')).attr('id', 'menuprincipal');
+        const rodape = $('#containerRodape');
+        const divLinksRodape = $(document.createElement('div')).attr('id', 'linksRodape');
+        const ulRodape = $(document.createElement('ul'));
+        const pRodape = $(document.createElement('p'));
+        const copyRightRodape = $(document.createElement('em')).attr('aria-hidden', 'true');
+        copyRightRodape.addClass('fa');
+        copyRightRodape.addClass('fa-copyright');
+        copyRightRodape.html(' 2022 | Jair M. Diniz');
+
+        ulRodape.addClass('list-unstyled');
+        pRodape.addClass('container');
+        pRodape.addClass('text-center');
+        pRodape.html('Copyrigth ');
+        copyRightRodape.appendTo(pRodape);
+
+        divLinksRodape.appendTo(rodape);
+        pRodape.appendTo(rodape);
+
         divMenu.addClass('collapse');
         divMenu.addClass('navbar-collapse');
         divMenu.appendTo(nav);
@@ -69,10 +87,12 @@ const criarMenu = function () {
 
         ulMneu.appendTo(divMenu);
         data.itensMenu.forEach((item, index) => {
-            const submenu = item.submenu;
-            const comSubMenu = submenu && item.submenu.length;
             const menu = $(document.createElement('li'));
             const link = $(document.createElement('a'));
+
+            const liRodape = $(document.createElement('li'));
+            const linkRodape = $(document.createElement('a'));
+            linkRodape.click(clickLink);
 
             link.addClass('nav-link');
             link.addClass('corFontMenu');
@@ -87,29 +107,18 @@ const criarMenu = function () {
             link.attr('id', `${item.id}_${item.label}`);
 
             link.appendTo(menu);
-            // if (comSubMenu) {
-            //     link.className += ' dropdown-toggle';
-            //     link.attr('role', "button");
-            //     link.attr('data-toggle', "dropdown");
-            //     link.attr('aria-haspopup', true);
-            //     link.attr('aria-expanded', false);
-
-            //     menu.className += ' dropdown';
-            //     const divSubMenu = $('div');
-            //     divSubMenu.className = 'dropdown-menu corFundoMenu';
-            //     divSubMenu.attr('aria-labelledby', link.id);
-            //     submenu.forEach(submenuItem => {
-            //         const sublink = $('a');
-            //         sublink.className = 'dropdown-item';
-            //         sublink.attr('href',submenuItem.link);
-            //         sublink.textContent = `${submenuItem.label}`;
-            //         divSubMenu.appendTo(sublink);
-            //     });
-            //     menu.appendChild(divSubMenu);
-            // }
             menu.appendTo(ulMneu);
-            // menuPrincipal.add(menu);
-            // console.log(menuPrincipal);
+            
+            linkRodape.attr('href', item.link);
+            linkRodape.html(`${item.label}`);
+
+            linkRodape.appendTo(liRodape);
+            liRodape.appendTo(ulRodape);
         });
+        ulRodape.appendTo(divLinksRodape);
     });
 };
+const getMenu = function(){
+    const jsonMenu = $.getJSON('assets/json/menu.json');
+    return jsonMenu;
+}
