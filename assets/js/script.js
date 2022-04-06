@@ -122,3 +122,93 @@ const getMenu = function(){
     const jsonMenu = $.getJSON('assets/json/menu.json');
     return jsonMenu;
 }
+const montarCarrossel = function (idDivCarrossel,arquivoJson) {
+    if (idDivCarrossel === undefined) {
+        return;
+    }
+    if(arquivoJson === undefined){
+        return;
+    }
+    const carro = $(`#${idDivCarrossel}`);
+    const jsonCarro = $.getJSON(`assets/json/${arquivoJson}`);
+    jsonCarro.done(data => {
+        const divInner = $(document.createElement('div'));
+        divInner.addClass('carousel-inner');
+
+        const olIndicador = $(document.createElement('ol'));
+        olIndicador.addClass('carousel-indicators');
+        data.imagens.forEach((image, index) => {
+            const liIndicador = $(document.createElement('li'));
+            liIndicador.attr('data-target', `#${idDivCarrossel}`);
+            liIndicador.attr('data-slide-to', index);
+            const divCarroItem = $(document.createElement('div'));
+            divCarroItem.addClass('carousel-item')
+            if (index === 0) {
+                liIndicador.addClass('active');
+                divCarroItem.addClass('active');
+            }
+            const imgImagem = $(document.createElement('img'));
+            imgImagem.addClass('d-block');
+            imgImagem.addClass('w-100');
+            imgImagem.appendTo(divCarroItem);
+            imgImagem.attr('src', `${image.local}/${image.nome}`);
+            imgImagem.attr('alt',`${image.textoAlternativo}`);
+            imgImagem.attr('width', `${image.largura}`);
+            imgImagem.attr('height', `${image.largura}`);
+
+            liIndicador.appendTo(olIndicador);
+            divCarroItem.appendTo(divInner);
+
+            const divLegendaItem = $(document.createElement('div'));
+            divLegendaItem.addClass('carousel-caption');
+            divLegendaItem.addClass('d-none');
+            divLegendaItem.addClass('d-md-block');
+            divLegendaItem.appendTo(divCarroItem);
+
+            const h5TituloLegenda = $(document.createElement('h5'));
+            h5TituloLegenda.html(`${image.tituloSlide}`);
+            h5TituloLegenda.appendTo(divLegendaItem);
+            
+            const pTextoLegenda = $(document.createElement('p'));
+            pTextoLegenda.html(`${image.descricaoSlide}`);
+            pTextoLegenda.appendTo(divLegendaItem);
+        });
+        olIndicador.appendTo(carro);
+        divInner.appendTo(carro);
+        const aAnterior = $(document.createElement('a'));
+        aAnterior.addClass('carousel-control-prev');
+        aAnterior.attr('href', `#${idDivCarrossel}`);
+        aAnterior.attr('role', `button`);
+        aAnterior.attr('data-slide', `prev`);
+
+        const spAnteriorIcon = $(document.createElement('span'));
+        spAnteriorIcon.addClass('carousel-control-prev-icon')
+        spAnteriorIcon.attr(`aria-hidden`,'true');
+        spAnteriorIcon.appendTo(aAnterior);
+        
+        const spAnteriorSr = $(document.createElement('span'));
+        spAnteriorSr.addClass('sr-only');
+        spAnteriorSr.html('Anterior')
+        spAnteriorSr.appendTo(aAnterior);
+
+        aAnterior.appendTo(carro);
+
+        const aProximo = $(document.createElement('a'));
+        aProximo.addClass('carousel-control-next');
+        aProximo.attr('href', `#${idDivCarrossel}`);
+        aProximo.attr('role', `button`);
+        aProximo.attr('data-slide', `next`);
+
+        const spProximoIcon = $(document.createElement('span'));
+        spProximoIcon.addClass('carousel-control-next-icon')
+        spProximoIcon.attr(`aria-hidden`,'true');
+        spProximoIcon.appendTo(aProximo);
+        
+        const spProximoSr = $(document.createElement('span'));
+        spProximoSr.addClass('sr-only');
+        spProximoSr.html('Próximo')
+        spProximoSr.appendTo(aProximo);
+        
+        aProximo.appendTo(carro);
+    });
+}
