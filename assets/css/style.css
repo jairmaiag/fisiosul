@@ -5,8 +5,16 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 #containerRodape{
-    background-color: #000000;
+    background-image: linear-gradient(0deg, #118f7e, #94c5bf);
     color: #ffffff;
+}
+#contatoDesenvolvedor{
+    text-decoration: none;
+    color: #ffffff;
+}
+#containerRodape > a{
+    color: #ffffff;
+    text-decoration: none;
 }
 #linksRodape > ul > li > a{
     color: #ffffff;
@@ -35,9 +43,6 @@ h1 {
 }
 .corFontMenu {
     color: #ffffff;
-}
-.jumbotron{
-    background-color: #94c5bf;
 }
 .fone{
     width: 16px;

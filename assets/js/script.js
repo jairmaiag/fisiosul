@@ -65,7 +65,7 @@ const criarMenu = function () {
         const copyRightRodape = $(document.createElement('em')).attr('aria-hidden', 'true');
         copyRightRodape.addClass('fa');
         copyRightRodape.addClass('fa-copyright');
-        copyRightRodape.html(' 2022 | Jair M. Diniz');
+        copyRightRodape.html('');
 
         ulRodape.addClass('list-unstyled');
         pRodape.addClass('container');
@@ -73,7 +73,11 @@ const criarMenu = function () {
         pRodape.html('Copyrigth ');
         copyRightRodape.appendTo(pRodape);
 
+        const contato = $(document.createElement('span'));
+        contato.html(` 2022 | <a href="mailto:jairmaiag@gmail.com" target="blanck" id="contatoDesenvolvedor">Jair M. Diniz</a>`);
+
         divLinksRodape.appendTo(rodape);
+        contato.appendTo(pRodape);
         pRodape.appendTo(rodape);
 
         divMenu.addClass('collapse');
