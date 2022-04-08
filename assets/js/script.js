@@ -23,7 +23,7 @@ const criarParagrafoCard = function (texto) {
 const exibeConteudo = function (link) {
     const pagina = $.get(`paginas/${link}/index.html`);
     pagina.done(data => {
-        let pirncipal = $('main');
+        const pirncipal = $('main');
         pirncipal.html(data);
     });
 };
