@@ -1,42 +1,12 @@
 <h1>Regras</h1>
-<div class="card-deck">
-    <div class="card shadow rounded mb-3">
-        <div class="card-header text-primary">Higienização</div>
-        <img class="card-img-top mt-3" width="100" height="200" src="assets/images/regras/borrifador.png"
-            alt="borrifador">
-        <div class="card-body">
-            <p class="card-text">
-                Use máscara e sempre que possível higienize com álcool os equipamentos que foram utilizados.
-            </p>
-            <p class="card-text">
-                *Saude é um dever de todos.
-            </p>
-        </div>
-    </div>
-    <div class="card shadow rounded mb-3">
-        <div class="card-header text-primary">Atividades</div>
-        <img class="card-img-top mt-3" width="50" height="200" src="assets/images/regras/calendario.png"
-            alt="calendario">
-        <div class="card-body">
-            <p class="card-text">
-                Aproveite ao máximo o tempo de sua sessão.
-            </p>
-            <p class="card-text">
-                *Cuidado com uso excecivo do celular e também com barulhos indesejados aos demais.
-            </p>
-        </div>
-    </div>
-    <div class="card shadow rounded mb-3">
-        <div class="card-header text-primary">Faltas e tolerância</div>
-        <img class="card-img-top mt-3" width="50" height="200" src="assets/images/regras/atrassado.png" alt="atrassado">
-        <div class="card-body">
-            <p class="card-text">
-                Cuidado com as faltas.
-            </p>
-            <p class="card-text">
-                *Pacientes com 3 faltas sem aviso são automaticamente cortados do sistema.
-                Os 15 minutos de tolerância no atraso são para eventualidades.
-            </p>
-        </div>
-    </div>
-</div>
+<div class="card-deck" id="listaregras"></div>
+<script>
+    window.jsonRegras = $.getJSON('assets/json/regras.json');
+    window.jsonRegras.done(data => {
+        const lista = $('#listaregras');
+        data.regras.forEach(regra => {
+            montarCard(regra).appendTo(lista);
+        });
+    });
+    delete window.jsonClinicas;
+</script>
