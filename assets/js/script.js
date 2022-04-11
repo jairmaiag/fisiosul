@@ -3,6 +3,46 @@ window.onload = function () {
     exibeConteudo('home');
     ajustarLinkHome();
 }
+const montarImageCard = function (imagem) {
+    const imageCard = $(document.createElement('img'));
+    imageCard.addClass('card-img-top');
+    imageCard.addClass('mt-3');
+    imageCard.attr('width', imagem.largura);
+    imageCard.attr('height', imagem.altura);
+    imageCard.attr('src', imagem.arquivo);
+    imageCard.attr('alt', imagem.alt);
+    return imageCard;
+}
+const montarParagrafoCard = function (texto) {
+    const textoCard = $(document.createElement('p'));
+    textoCard.addClass('card-text');
+    textoCard.html(texto);
+    return textoCard;
+}
+const montarCard = function (dados) {
+    const divCard = $(document.createElement('div'));
+    divCard.addClass('card');
+    divCard.addClass('shadow');
+    divCard.addClass('rounded');
+    divCard.addClass('mb-3');
+
+    const divCardHead = $(document.createElement('div'));
+    divCardHead.addClass("card-header");
+    divCardHead.addClass("text-primary");
+    divCardHead.html(dados.titulo);
+    divCardHead.appendTo(divCard);
+    montarImageCard(dados.imagem).appendTo(divCard);
+
+    const divCardBody = $(document.createElement('div'));
+    divCardBody.addClass("card-body");
+
+    montarParagrafoCard(dados.textoprincipal).appendTo(divCardBody);
+    dados.outrosTextos.forEach(texto =>{
+        montarParagrafoCard(texto).appendTo(divCardBody);
+    });
+    divCardBody.appendTo(divCard);
+    return divCard;
+};
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
     if(host == 'jairmaiag.github.io'){
