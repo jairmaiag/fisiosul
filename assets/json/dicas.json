@@ -2,16 +2,143 @@
     "dicas": [
         {
             "id": 1,
-            "titulo": "Postura",
-            "textoprincipal":"Ao sentrar nas cadeiras, sente-se de forma ereta.",
-            "outrosTextos":[
+            "titulo": "Postura 1",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
                 "*Isso evita dores nas costas."
             ],
-            "imagem":{
-                "altura":"200",
-                "largura":"100",
-                "arquivo":"assets/images/regras/borrifador.png"
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 2",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 3",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 4",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 5",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 6",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 7",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 8",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 9",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
+            }
+        },
+        {
+            "id": 1,
+            "titulo": "Postura 10",
+            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "outrosTextos": [
+                "*Isso evita dores nas costas."
+            ],
+            "imagem": {
+                "altura": "200",
+                "largura": "100",
+                "arquivo": "assets/images/regras/atrassado.png",
+                "alt":"calendario"
             }
         }
-   ]
+    ]
 }

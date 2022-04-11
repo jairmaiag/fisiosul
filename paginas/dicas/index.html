@@ -1,12 +1,9 @@
 <h1>Dicas</h1>
-<div class="card-deck" id="listadicas"></div>
+<div id="listadicas"></div>
 <script>
     window.jsonDicas = $.getJSON('assets/json/dicas.json');
     window.jsonDicas.done(data => {
-        const lista = $('#listadicas');
-        data.dicas.forEach(dica => {
-            montarCard(dica).appendTo(lista);
-        });
+        montarListaCards(data.dicas,$('#listadicas'));
     });
     delete window.jsonDicas;
 </script>

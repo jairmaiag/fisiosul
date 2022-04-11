@@ -3,6 +3,21 @@ window.onload = function () {
     exibeConteudo('home');
     ajustarLinkHome();
 }
+const montarListaCards = function(dados,destino){
+    let divRow = $(document.createElement('div'));
+    divRow.addClass('row');
+    dados.forEach((data, i) => {
+        if (i % 3 == 0) {
+            divRow = $(document.createElement('div'));
+            divRow.addClass('row');
+        }
+        let divCol = $(document.createElement('div'));
+        divCol.addClass('col-sm-4');
+        divCol.appendTo(divRow);
+        montarCard(data).appendTo(divCol);
+        divRow.appendTo(destino);
+    });
+}
 const montarImageCard = function (imagem) {
     const imageCard = $(document.createElement('img'));
     imageCard.addClass('card-img-top');
@@ -25,6 +40,7 @@ const montarCard = function (dados) {
     divCard.addClass('shadow');
     divCard.addClass('rounded');
     divCard.addClass('mb-3');
+    divCard.addClass('ml-3');
 
     const divCardHead = $(document.createElement('div'));
     divCardHead.addClass("card-header");
