@@ -2,7 +2,7 @@
     "clinicas": [
         {
             "id": 1,
-            "nome": "Unidade Floresta",
+            "titulo": "Unidade Floresta",
             "endereco": {
                 "logradouro": "Av",
                 "nome": "Santa Catarina",
@@ -34,7 +34,7 @@
         },
         {
             "id": 2,
-            "nome": "Unidade Fátima",
+            "titulo": "Unidade Fátima",
             "endereco": {
                 "logradouro": "Rua",
                 "nome": "Guanabara",
