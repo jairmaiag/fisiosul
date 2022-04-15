@@ -3,22 +3,116 @@ window.onload = function () {
     exibeConteudo('home');
     ajustarLinkHome();
 }
-const montarListaCards = function(dados,destino){
-    let divRow = $(document.createElement('div'));
-    divRow.addClass('row');
-    dados.forEach((data, i) => {
-        if (i % 3 == 0) {
-            divRow = $(document.createElement('div'));
-            divRow.addClass('row');
+function CardDeck(dados, destino) {
+    this.dados = dados;
+    this.cardDecks = [];
+    this.cards = [];
+    this.destino = destino;
+    this.mount();
+    this.toString();
+}
+CardDeck.prototype.mount = function () {
+    const resto = this.dados.length % 3;
+    let divCardDeck = this.mountCardDeck();
+    this.cardDecks.push(divCardDeck);
+    this.dados.forEach((data, i) => {
+        if (i > 0 && (i % 3) === 0) {
+            divCardDeck = this.mountCardDeck();
+            this.cardDecks.push(divCardDeck);
         }
-        let divCol = $(document.createElement('div'));
-        divCol.addClass('col-sm-4');
-        divCol.appendTo(divRow);
-        montarCard(data).appendTo(divCol);
-        divRow.appendTo(destino);
+        const card = this.mountCard(data);
+        this.cards.push(card);
+        card.appendTo(divCardDeck);
+    });
+    if (resto !== 0) {
+        for (let i = 1; i <= (3 - resto); i++) {
+            const card = this.mountCard({}, true);
+            this.cards.push(card);
+            card.appendTo(divCardDeck);
+        }
+    }
+    return divCardDeck;
+};
+CardDeck.prototype.mountCardDeck = function () {
+    const divCardDeck = $(document.createElement('div'));
+    divCardDeck.addClass("card-deck");
+    divCardDeck.addClass("row");
+    divCardDeck.addClass("mb-3");
+    return divCardDeck;
+}
+CardDeck.prototype.mountImage = function (imagem) {
+    const imageCard = $(document.createElement('img'));
+    if (!imagem) {
+        return imageCard;
+    }
+    imageCard.addClass('card-img-top');
+    imageCard.addClass('mt-3');
+    imageCard.attr('width', imagem.largura);
+    imageCard.attr('height', imagem.altura);
+    imageCard.attr('src', imagem.arquivo);
+    imageCard.attr('alt', imagem.alt);
+    return imageCard;
+};
+CardDeck.prototype.mountCard = function (data, vazio) {
+    const divCard = $(document.createElement('div'));
+    divCard.addClass("card");
+    if (vazio) {
+        divCard.addClass("border-0");
+        return divCard;
+    } else {
+        divCard.addClass("shadow");
+        divCard.addClass("rounded");
+    }
+    this.mountHead(data.titulo).appendTo(divCard);
+    this.mountImage(data.imagem).appendTo(divCard);
+    this.mountBody(data.textoprincipal, data.outrosTextos).appendTo(divCard);
+    return divCard;
+};
+CardDeck.prototype.mountHead = function (titulo) {
+    if (!titulo) {
+        return;
+    }
+    const divCardHead = $(document.createElement('div'));
+    divCardHead.addClass("card-header");
+    divCardHead.addClass("text-primary");
+    divCardHead.html(titulo);
+    return divCardHead;
+}
+CardDeck.prototype.mountBody = function (mainText, textos) {
+    const divCardBody = $(document.createElement('div'));
+    divCardBody.addClass("card-body");
+    if (!mainText) {
+        return divCardBody;
+    }
+    new TextCard(mainText, divCardBody);
+    if (textos && textos.length > 0) {
+        textos.forEach(texto => {
+            new TextCard(texto, divCardBody);
+        });
+    }
+    return divCardBody;
+}
+CardDeck.prototype.toString = function () {
+    console.log(this.cardDecks);
+    this.cardDecks.forEach(cardeck => {
+        cardeck.appendTo(this.destino);
     });
 }
-const montarImageCard = function (imagem) {
+function TextCard(text, target) {
+    this.text = text;
+    this.target = target;
+    this.mount();
+}
+TextCard.prototype.mount = function () {
+    const paragrafo = $(document.createElement('p'));
+    paragrafo.addClass("card-text");
+    paragrafo.html(this.text);
+    paragrafo.appendTo(this.target);
+}
+const montarListaCards = function (dados, destino) {
+    new CardDeck(dados, destino);
+}
+const criarImageCard = function (imagem) {
     const imageCard = $(document.createElement('img'));
     imageCard.addClass('card-img-top');
     imageCard.addClass('mt-3');
@@ -41,32 +135,71 @@ const montarCard = function (dados) {
     divCard.addClass('rounded');
     divCard.addClass('mb-3');
     divCard.addClass('ml-3');
+    divCard.addClass('h-100');
 
-    const divCardHead = $(document.createElement('div'));
-    divCardHead.addClass("card-header");
-    divCardHead.addClass("text-primary");
-    divCardHead.html(dados.titulo);
+    const divCardHead = criarDivCardHead(dados.titulo);
     divCardHead.appendTo(divCard);
-    montarImageCard(dados.imagem).appendTo(divCard);
+    criarImageCard(dados.imagem).appendTo(divCard);
 
     const divCardBody = $(document.createElement('div'));
     divCardBody.addClass("card-body");
 
     montarParagrafoCard(dados.textoprincipal).appendTo(divCardBody);
-    dados.outrosTextos.forEach(texto =>{
+    dados.outrosTextos.forEach(texto => {
         montarParagrafoCard(texto).appendTo(divCardBody);
     });
     divCardBody.appendTo(divCard);
     return divCard;
 };
+const criarDivCardDeck = function () {
+    const divCardDeck = $(document.createElement('div'));
+    divCardDeck.addClass("card-deck");
+    divCardDeck.addClass("row");
+    divCardDeck.addClass("mb-3");
+    return divCardDeck;
+}
+const criarDivCard = function (dados) {
+    const divCard = $(document.createElement('div'));
+    divCard.addClass("card");
+    divCard.addClass("shadow");
+    divCard.addClass("rounded");
+    if (dados.titulo) {
+        criarDivCardHead(dados.titulo).appendTo(divCard);
+    }
+    if (dados.imagem) {
+        criarImageCard(dados.imagem).appendTo(divCard);
+    }
+    const divCardBody = $(document.createElement('div'));
+    divCardBody.addClass("card-body");
+    montarParagrafoCard(dados.textoprincipal).appendTo(divCardBody);
+    divCardBody.appendTo(divCard);
+    if (dados.outrosTextos) {
+        dados.outrosTextos.forEach(texto => {
+            montarParagrafoCard(texto).appendTo(divCardBody);
+        });
+    }
+    return divCard;
+}
+const criarDivCardHead = function (titulo) {
+    const divCardHead = $(document.createElement('div'));
+    divCardHead.addClass("card-header");
+    divCardHead.addClass("text-primary");
+    divCardHead.html(titulo);
+    return divCardHead;
+}
+const criarParagrafosBodyCard = function (textos) {
+    if (!textos || textos.length === 0) {
+        return;
+    }
+}
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
-    if(host == 'jairmaiag.github.io'){
+    if (host == 'jairmaiag.github.io') {
         const link = 'https://jairmaiag.github.io/fisiosul/';
         const logoMenu = $('#linklogomenu');
-        logoMenu.attr('href',link);
+        logoMenu.attr('href', link);
         const logoBanner = $('#linkbanner');
-        logoBanner.attr('href',link);
+        logoBanner.attr('href', link);
     }
 }
 const criarParagrafoCard = function (texto) {
@@ -168,7 +301,7 @@ const criarMenu = function () {
 
             link.appendTo(menu);
             menu.appendTo(ulMneu);
-            
+
             linkRodape.attr('href', item.link);
             linkRodape.html(`${item.label}`);
 
@@ -178,15 +311,15 @@ const criarMenu = function () {
         ulRodape.appendTo(divLinksRodape);
     });
 };
-const getMenu = function(){
+const getMenu = function () {
     const jsonMenu = $.getJSON('assets/json/menu.json');
     return jsonMenu;
 }
-const montarCarrossel = function (idDivCarrossel,arquivoJson) {
+const montarCarrossel = function (idDivCarrossel, arquivoJson) {
     if (idDivCarrossel === undefined) {
         return;
     }
-    if(arquivoJson === undefined){
+    if (arquivoJson === undefined) {
         return;
     }
     const carro = $(`#${idDivCarrossel}`);
@@ -212,7 +345,7 @@ const montarCarrossel = function (idDivCarrossel,arquivoJson) {
             imgImagem.addClass('w-100');
             imgImagem.appendTo(divCarroItem);
             imgImagem.attr('src', `${image.local}/${image.nome}`);
-            imgImagem.attr('alt',`${image.textoAlternativo}`);
+            imgImagem.attr('alt', `${image.textoAlternativo}`);
             imgImagem.attr('width', `${image.largura}`);
             imgImagem.attr('height', `${image.largura}`);
 
@@ -228,7 +361,7 @@ const montarCarrossel = function (idDivCarrossel,arquivoJson) {
             const h5TituloLegenda = $(document.createElement('h5'));
             h5TituloLegenda.html(`${image.tituloSlide}`);
             h5TituloLegenda.appendTo(divLegendaItem);
-            
+
             const pTextoLegenda = $(document.createElement('p'));
             pTextoLegenda.html(`${image.descricaoSlide}`);
             pTextoLegenda.appendTo(divLegendaItem);
@@ -243,9 +376,9 @@ const montarCarrossel = function (idDivCarrossel,arquivoJson) {
 
         const spAnteriorIcon = $(document.createElement('span'));
         spAnteriorIcon.addClass('carousel-control-prev-icon')
-        spAnteriorIcon.attr(`aria-hidden`,'true');
+        spAnteriorIcon.attr(`aria-hidden`, 'true');
         spAnteriorIcon.appendTo(aAnterior);
-        
+
         const spAnteriorSr = $(document.createElement('span'));
         spAnteriorSr.addClass('sr-only');
         spAnteriorSr.html('Anterior')
@@ -261,14 +394,15 @@ const montarCarrossel = function (idDivCarrossel,arquivoJson) {
 
         const spProximoIcon = $(document.createElement('span'));
         spProximoIcon.addClass('carousel-control-next-icon')
-        spProximoIcon.attr(`aria-hidden`,'true');
+        spProximoIcon.attr(`aria-hidden`, 'true');
         spProximoIcon.appendTo(aProximo);
-        
+
         const spProximoSr = $(document.createElement('span'));
         spProximoSr.addClass('sr-only');
         spProximoSr.html('Próximo')
         spProximoSr.appendTo(aProximo);
-        
+
         aProximo.appendTo(carro);
+        carro.carousel();
     });
 }
