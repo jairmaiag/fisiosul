@@ -1,37 +1,19 @@
 <h1 id="cli" class="text-success">Clínicas</h1>
-<div id="listaUnidades"></div>
+<div class="container-fluid" id="listaUnidades"></div>
 <script>
     window.jsonClinicas = $.getJSON('assets/json/clinicas.json');
     window.jsonClinicas.done(data => {
         const lista = $('#listaUnidades');
-        const divCardDeck = $(document.createElement('div'));
-        divCardDeck.addClass("card-deck");
-        data.clinicas.forEach(clinica => {
-            const divCard = $(document.createElement('div'));
-            divCard.addClass("card");
-            divCard.addClass("mb-3");
-            divCard.addClass("shadow");
-            divCard.addClass("rounded");
-
-            divCard.appendTo(divCardDeck);
-            const divCardHead = $(document.createElement('div'));
-            divCardHead.addClass("card-header");
-            divCardHead.addClass("text-primary");
-            divCardHead.html(clinica.nome);
-            divCardHead.appendTo(divCard);
-
-            const divCardBody = $(document.createElement('div'));
-            divCardBody.addClass("card-body");
-
-            const endereco = clinica.endereco;
-            const endCompleto = `${endereco.logradouro} ${endereco.nome}, ${endereco.numero} - ${endereco.bairro} - ${endereco.cidade}, ${endereco.uf} - CEP: ${endereco.cep}`;
-            const pEndereco = criarParagrafoCard(endCompleto);
-            pEndereco.appendTo(divCardBody);
+        const { clinicas } = data;
+        let divCardDeck = criarDivCardDeck();
+        data.clinicas.forEach((clinica, index) => {
+            const { logradouro, nome, numero, bairro, cidade, uf, cep, mapa } = clinica.endereco;
+            clinicas[index].textoprincipal = `${logradouro} ${nome}, ${numero} - ${bairro} - ${cidade}, ${uf} - CEP: ${cep}`;
+            clinicas[index].outrosTextos = [];
 
             const celular = window.navigator.userAgent.toLocaleLowerCase().match(/android/g) == "android";
             if (clinica.telefones.length > 0) {
                 clinica.telefones.forEach(fone => {
-                    const pFones = $(document.createElement('p'));
                     let linkWahtssIni = "";
                     if (fone.tipo == 'movel') {
                         if (celular) {
@@ -43,8 +25,7 @@
                     const icone = fone.tipo == "fixo" ? 'fa-phone' : 'fa-whatsapp';
 
                     let texto = `${linkWahtssIni}<i class="fa ${icone}" aria-hidden="true"></i> (${fone.ddd}) ${fone.numero}${celular ? "</a>" : fone.tipo == 'movel' ? '</a>' : ''} `;
-                    pFones.html(texto);
-                    pFones.appendTo(divCardBody);
+                    clinicas[index].outrosTextos.push(texto);
                 });
             }
 
@@ -54,16 +35,14 @@
             icone.addClass('fa-map-marker');
             icone.attr('aria-hidden', 'true');
             icone.html(' Mapa');
-            aVisitar.attr('href', endereco.mapa);
+            aVisitar.attr('href', mapa);
             aVisitar.attr('target', 'blank');
             aVisitar.addClass('btn');
             aVisitar.addClass('btn-primary');
             icone.appendTo(aVisitar);
-            aVisitar.appendTo(divCardBody);
-
-            divCardBody.appendTo(divCard);
+            clinicas[index].outrosTextos.push(aVisitar);
         });
-        divCardDeck.appendTo(lista);
+        montarListaCards(clinicas, $('#listaUnidades'));
     });
     delete window.jsonClinicas;
 </script>
