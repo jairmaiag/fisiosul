@@ -3,15 +3,15 @@
         {
             "id": 1,
             "titulo": "Postura 1",
-            "textoprincipal": "Ao sentrar nas cadeiras, sente-se de forma ereta.",
+            "textoprincipal": "Use máscara e sempre que possível higienize com álcool os equipamentos que foram utilizados.",
             "outrosTextos": [
-                "*Isso evita dores nas costas."
+                "*Saude é um dever de todos."
             ],
             "imagem": {
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -25,7 +25,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -39,7 +39,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -53,7 +53,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -67,7 +67,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -81,7 +81,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -95,7 +95,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -109,7 +109,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -123,7 +123,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         },
         {
@@ -137,7 +137,7 @@
                 "altura": "200",
                 "largura": "100",
                 "arquivo": "assets/images/regras/atrassado.png",
-                "alt":"calendario"
+                "alt": "calendario"
             }
         }
     ]
