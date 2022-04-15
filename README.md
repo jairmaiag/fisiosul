@@ -1,6 +1,6 @@
 # FISIOSUL
 
-Execução: [Clique aqui](https://jairmaiag.github.io/fisiosul/)  
+A execução pode ser feita em [https://jairmaiag.github.io/fisiosul](https://jairmaiag.github.io/fisiosul/)  
 Projeto criado para estudo do Bootstrap 4.6.1, JQuery 3 e [font-awesome 4.7.0](https://onface.github.io/font-awesome/) para os ícones.
 
 Leitura de arquivos JSON para:
