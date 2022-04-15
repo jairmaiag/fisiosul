@@ -5,7 +5,6 @@
     window.jsonClinicas.done(data => {
         const lista = $('#listaUnidades');
         const { clinicas } = data;
-        let divCardDeck = criarDivCardDeck();
         data.clinicas.forEach((clinica, index) => {
             const { logradouro, nome, numero, bairro, cidade, uf, cep, mapa } = clinica.endereco;
             clinicas[index].textoprincipal = `${logradouro} ${nome}, ${numero} - ${bairro} - ${cidade}, ${uf} - CEP: ${cep}`;

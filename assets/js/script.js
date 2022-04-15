@@ -93,7 +93,6 @@ CardDeck.prototype.mountBody = function (mainText, textos) {
     return divCardBody;
 }
 CardDeck.prototype.toString = function () {
-    console.log(this.cardDecks);
     this.cardDecks.forEach(cardeck => {
         cardeck.appendTo(this.destino);
     });
@@ -111,86 +110,6 @@ TextCard.prototype.mount = function () {
 }
 const montarListaCards = function (dados, destino) {
     new CardDeck(dados, destino);
-}
-const criarImageCard = function (imagem) {
-    const imageCard = $(document.createElement('img'));
-    imageCard.addClass('card-img-top');
-    imageCard.addClass('mt-3');
-    imageCard.attr('width', imagem.largura);
-    imageCard.attr('height', imagem.altura);
-    imageCard.attr('src', imagem.arquivo);
-    imageCard.attr('alt', imagem.alt);
-    return imageCard;
-}
-const montarParagrafoCard = function (texto) {
-    const textoCard = $(document.createElement('p'));
-    textoCard.addClass('card-text');
-    textoCard.html(texto);
-    return textoCard;
-}
-const montarCard = function (dados) {
-    const divCard = $(document.createElement('div'));
-    divCard.addClass('card');
-    divCard.addClass('shadow');
-    divCard.addClass('rounded');
-    divCard.addClass('mb-3');
-    divCard.addClass('ml-3');
-    divCard.addClass('h-100');
-
-    const divCardHead = criarDivCardHead(dados.titulo);
-    divCardHead.appendTo(divCard);
-    criarImageCard(dados.imagem).appendTo(divCard);
-
-    const divCardBody = $(document.createElement('div'));
-    divCardBody.addClass("card-body");
-
-    montarParagrafoCard(dados.textoprincipal).appendTo(divCardBody);
-    dados.outrosTextos.forEach(texto => {
-        montarParagrafoCard(texto).appendTo(divCardBody);
-    });
-    divCardBody.appendTo(divCard);
-    return divCard;
-};
-const criarDivCardDeck = function () {
-    const divCardDeck = $(document.createElement('div'));
-    divCardDeck.addClass("card-deck");
-    divCardDeck.addClass("row");
-    divCardDeck.addClass("mb-3");
-    return divCardDeck;
-}
-const criarDivCard = function (dados) {
-    const divCard = $(document.createElement('div'));
-    divCard.addClass("card");
-    divCard.addClass("shadow");
-    divCard.addClass("rounded");
-    if (dados.titulo) {
-        criarDivCardHead(dados.titulo).appendTo(divCard);
-    }
-    if (dados.imagem) {
-        criarImageCard(dados.imagem).appendTo(divCard);
-    }
-    const divCardBody = $(document.createElement('div'));
-    divCardBody.addClass("card-body");
-    montarParagrafoCard(dados.textoprincipal).appendTo(divCardBody);
-    divCardBody.appendTo(divCard);
-    if (dados.outrosTextos) {
-        dados.outrosTextos.forEach(texto => {
-            montarParagrafoCard(texto).appendTo(divCardBody);
-        });
-    }
-    return divCard;
-}
-const criarDivCardHead = function (titulo) {
-    const divCardHead = $(document.createElement('div'));
-    divCardHead.addClass("card-header");
-    divCardHead.addClass("text-primary");
-    divCardHead.html(titulo);
-    return divCardHead;
-}
-const criarParagrafosBodyCard = function (textos) {
-    if (!textos || textos.length === 0) {
-        return;
-    }
 }
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
