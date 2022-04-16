@@ -113,8 +113,8 @@ const montarListaCards = function (dados, destino) {
 }
 const ajustarLinkHome = function () {
     const host = window.location.hostname;
-    console.log(host);
-    if (host == 'jairmaiag.github.io') {
+    console.log(host, window.location);
+    if (host === 'jairmaiag.github.io') {
         const link = 'https://jairmaiag.github.io/fisiosul/';
         const logoMenu = $('#linklogomenu');
         logoMenu.attr('href', link);
