@@ -7,6 +7,9 @@ Leitura de arquivos JSON para:
 
 * **Criação do menu de forma automática.**
 * **Exibição das clínicas.**
+* **Exibição das regras.**
+* **Exibição das dicas.**
+
 
 Foi resolvido o problema do botão hamburger (em browser mobile), que quando clicado em uma das opções o mesmo não fechava.
 
