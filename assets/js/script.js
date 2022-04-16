@@ -112,15 +112,11 @@ const montarListaCards = function (dados, destino) {
     new CardDeck(dados, destino);
 }
 const ajustarLinkHome = function () {
-    const host = window.location.hostname;
-    console.log(host, window.location);
-    if (host === 'jairmaiag.github.io') {
-        const link = 'https://jairmaiag.github.io/fisiosul/';
-        const logoMenu = $('#linklogomenu');
-        logoMenu.attr('href', link);
-        const logoBanner = $('#linkbanner');
-        logoBanner.attr('href', link);
-    }
+    const link = window.location.href;
+    const logoMenu = $('#linklogomenu');
+    logoMenu.attr('href', link);
+    const logoBanner = $('#linkbanner');
+    logoBanner.attr('href', link);
 }
 const criarParagrafoCard = function (texto) {
     const paragrafo = $(document.createElement('p'));
