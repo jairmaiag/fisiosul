@@ -29,6 +29,12 @@
             "label": "Dicas",
             "link": "dicas",
             "submenu": []
+        },
+        {
+            "id": 6,
+            "label": "Enquetes",
+            "link": "enquetes",
+            "submenu": []
         }
     ]
 }
