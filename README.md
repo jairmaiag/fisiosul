@@ -2,8 +2,6 @@
 <a href="https://html.spec.whatwg.org/multipage/" alt="html5" target="_blank">
 <img src="https://img.shields.io/badge/HTML5-d84924?&logo=HTML5&logoColor=white&style=flat" />
 </a>  
-------------
-
 <a href="https://www.w3c.br/Cursos/CursoCSS3/" alt="css" target="_blank">
 <img src="https://img.shields.io/badge/CSS3-327fff?&logo=CSS3&logoColor=FFFF&style=flat" />
 </a>
