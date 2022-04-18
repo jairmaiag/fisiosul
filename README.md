@@ -3,7 +3,7 @@
 <img src="https://img.shields.io/badge/HTML5-d84924?&logo=HTML5&logoColor=white&style=flat" />
 </a>  
 <a href="https://www.w3c.br/Cursos/CursoCSS3/" alt="css" target="_blank">
-<img src="https://img.shields.io/badge/CSS3-327fff?&logo=CSS3&logoColor=FFFF&style=flat" />
+<img src="https://img.shields.io/badge/CSS3-327fff?&logo=CSS3&logoColor=FFFFFF&style=flat" />
 </a>
 <a href="https://www.w3.org/standards/webdesign/script" alt="javascript" target="_blank">
 <img src="https://img.shields.io/badge/JavaScript-f0c13d?&logo=javascript&logoColor=white&style=flat"/>
@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/BootStrap-563d7c?&logo=bootstrap&logoColor=white&style=flat" alt="bootstrap"/>
 </a>
 <a href="https://jquery.com/" alt="jquary" target="_blank">
-<img src="https://img.shields.io/badge/-Jquery-327fff?&logo=jquery&logoColor=FFFF&style=flat" alt="jquery"/>
+<img src="https://img.shields.io/badge/-Jquery-327fff?&logo=jquery&logoColor=FFFFFF&style=flat" alt="jquery"/>
 </a>
 
 ## Site para clínicias de fisioterapia e pilates :muscle:.
