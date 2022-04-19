@@ -1,50 +1,61 @@
 h1 {
-    background-image: linear-gradient(0deg, #94c5bf,#118f7e);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #118f7e;
+    font-size: 2rem;
+    font-weight: bold;
 }
-#containerRodape{
+
+#containerRodape {
     background-image: linear-gradient(0deg, #118f7e, #94c5bf);
     color: #ffffff;
 }
-#contatoDesenvolvedor{
+
+#contatoDesenvolvedor {
     text-decoration: none;
     color: #ffffff;
 }
-#containerRodape > a{
+
+#containerRodape>a {
     color: #ffffff;
     text-decoration: none;
 }
-#linksRodape > ul > li > a{
+
+#linksRodape>ul>li>a {
     color: #ffffff;
     text-decoration: none;
 }
-#logomenu{
+
+#logomenu {
     background-color: #ffffff;
     border-radius: 30px;
 }
-.navbar-light{
-    background-image: linear-gradient(0deg, #94c5bf,#118f7e);    
+
+.navbar-light {
+    background-image: linear-gradient(0deg, #94c5bf, #118f7e);
     color: #ffffff;
 }
-.bg-light{
+
+.bg-light {
     color: #ffffff;
 }
-.active{
+
+.active {
     background-color: #94c5bf;
     color: #ffffff;
 }
-#logo{
+
+#logo {
     background-color: white;
 }
+
 .corFundoMenu {
-    background-image: linear-gradient(0deg, #94c5bf,#118f7e);
+    background-image: linear-gradient(0deg, #94c5bf, #118f7e);
 }
+
 .corFontMenu {
     color: #ffffff;
 }
-.fone{
+
+.fone {
     width: 16px;
     height: 16px;
 }
