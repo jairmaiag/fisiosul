@@ -179,7 +179,8 @@ const criarMenu = function () {
         copyRightRodape.appendTo(pRodape);
 
         const contato = $(document.createElement('span'));
-        contato.html(` 2022 | <a href="mailto:jairmaiag@gmail.com" target="blanck" id="contatoDesenvolvedor">Jair M. Diniz</a>`);
+        const linkEmail = `<a href="mailto:jairmaiag@gmail.com?subject=Informações%20sobre%20projetos" target="_blank" title="Enviar email" id="contatoDesenvolvedor">Jair M. Diniz</a>`
+        contato.html(` 2022 | ${linkEmail}`);
 
         divLinksRodape.appendTo(rodape);
         contato.appendTo(pRodape);
